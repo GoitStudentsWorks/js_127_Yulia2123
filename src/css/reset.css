@@ -4,8 +4,16 @@ h3,
 h4,
 h5,
 h6,
-p {
+p,
+ul,
+ol {
   margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
 }
 
 p:last-child {
@@ -24,6 +32,8 @@ a {
 }
 
 button {
+  background-color: #88765c;
+  border: 1px solid #88765c;
   cursor: pointer;
 }
 
