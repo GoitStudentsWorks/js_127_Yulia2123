@@ -18,4 +18,8 @@
     max-width: 1440px;
     padding: 0 64px;
   }
+
+  .section {
+    padding: 80 0px;
+  }
 }
