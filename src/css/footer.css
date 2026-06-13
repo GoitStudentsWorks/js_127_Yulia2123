@@ -38,8 +38,13 @@
 }
 
 .footer-link{
-  max-width: 302px;
+  max-width: 300px;
   max-height: 129px;
+}
+
+.footer-logo{
+  width: 300px;
+  height: 100px;
 }
 
 .footer-list-links{
