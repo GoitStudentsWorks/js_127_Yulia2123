@@ -19,3 +19,69 @@
   background-color: #41d1ff;
   transition: 200ms ease;
 }
+
+/*----------MAIN STYLES----------*/
+
+.footer-section{
+  background-color: #C3B49D;
+  min-width: 320px;
+  max-width: 375px;
+  margin: 0 auto;
+  padding: 48px 0;
+}
+
+.footer-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.footer-link{
+  max-width: 302px;
+  max-height: 129px;
+}
+
+.footer-logo{
+
+}
+
+.footer-list-links{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.footer-item-link{
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #02060a;
+}
+
+.footer-privacy{
+  margin-top: 48px;
+}
+
+.footer-list-socials{
+  display: flex;
+  gap: 24px;
+}
+
+.footer-privacy{
+  max-width: 100%;
+  min-width: 320px;
+  padding-top: 20px;
+  text-align: center;
+  border-top: 1px solid rgba(2, 6, 10, 0.15);
+}
+
+.footer-privacy-text{
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #02060a;
+}
