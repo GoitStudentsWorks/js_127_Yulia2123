@@ -25,7 +25,7 @@
 .footer-section{
   background-color: #C3B49D;
   min-width: 320px;
-  max-width: 375px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 48px 0;
 }
@@ -40,10 +40,6 @@
 .footer-link{
   max-width: 302px;
   max-height: 129px;
-}
-
-.footer-logo{
-
 }
 
 .footer-list-links{
@@ -84,4 +80,46 @@
   font-size: 12px;
   line-height: 1.5;
   color: #02060a;
+}
+
+@media only screen and (min-width: 768px) {
+  .footer-section{
+    min-width: 768px;
+    padding: 48px 0;
+  }
+
+  .footer-container{
+    padding: 0 32px;
+  }
+
+  .footer-list-links{
+    flex-direction: row;
+  }
+
+  .footer-privacy{
+    min-width: 768px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .footer-section{
+    min-width: 1440px;
+    padding: 64px 0;
+  }
+
+  .footer-container{
+    padding: 0 64px;
+  }
+
+  .footer-item-link{
+    font-size: 14px;
+  }
+
+  .footer-privacy{
+    min-width: 1440px;
+  }
+
+  .footer-privacy-text{
+    font-size: 14px;
+  }
 }
