@@ -42,9 +42,9 @@
   max-height: 129px;
 }
 
-.footer-logo{
+.footer-logo {
   width: 300px;
-  height: 100px;
+  height: auto;
 }
 
 .footer-list-links{
