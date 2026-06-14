@@ -1,0 +1,201 @@
+.modal-overlay-dtls {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  display: flex;
+
+  transition:
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-close-btn {
+  stroke: #02060a;
+}
+.modal-overlay-dtls.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.modal-window {
+  position: relative;
+  max-height: 90vh;
+  max-width: min(335px, calc(100vw - 32px));
+  overflow-y: auto;
+  padding: 64px 20px;
+  background-color: #f6f4f1;
+  border-radius: 8px;
+}
+
+.modal-info {
+  max-width: 295px;
+  gap: 24px;
+  display: grid;
+  grid-template-areas:
+    'header'
+    'description'
+    'health'
+    'behavior'
+    'button';
+}
+
+.modal-info-part:nth-child(1) {
+  grid-area: header;
+}
+.modal-info-part:nth-child(2) {
+  grid-area: description;
+}
+.modal-info-part:nth-child(3) {
+  grid-area: health;
+}
+.modal-info-part:nth-child(4) {
+  grid-area: behavior;
+}
+.modal-info-btn {
+  grid-area: button;
+}
+
+.modal-info-part {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal-image {
+  border-radius: 8px;
+  width: 295px;
+  height: 295px;
+  object-fit: cover;
+}
+
+.modal-species,
+.modal-meta {
+  font-size: 12px;
+}
+
+.modal-species {
+  margin-top: 32px;
+}
+
+.modal-name {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 32px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.modal-meta {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.modal-info-h3 {
+  font-size: 14px;
+}
+
+.modal-info-btn {
+  border-radius: 8px;
+  padding: 12px 24px;
+  height: 45px;
+  color: #ffffff;
+  line-height: 1.5;
+  transition: all 0.2s ease;
+}
+
+.modal-info-btn:hover,
+.modal-info-btn:focus,
+.modal-info-btn:active {
+  border: 1px solid #88765c;
+  background-color: #eee9e3;
+  color: #02060a;
+}
+
+.modal-info-btn:active {
+  box-shadow:
+    inset 0 4px 6px -2px rgba(0, 0, 0, 0.03),
+    inset 0 12px 16px -4px rgba(0, 0, 0, 0.08);
+}
+
+/* Styles for Tablet devices */
+@media only screen and (min-width: 768px) {
+  .modal-window {
+    padding: 64px 32px;
+    min-width: 704px;
+  }
+
+  .modal-content {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+  }
+
+  .modal-info {
+    max-width: 304px;
+    grid-template-areas:
+      'header'
+      'button'
+      'description'
+      'health'
+      'behavior';
+  }
+
+  .modal-image {
+    width: 304px;
+    height: 450px;
+  }
+
+  .modal-species {
+    margin-top: 0;
+  }
+}
+
+/* Styles for Desktop devices */
+@media only screen and (min-width: 1440px) {
+  .modal-window {
+    padding: 64px;
+    min-width: 1312px;
+  }
+
+  .modal-info {
+    max-width: 576px;
+    grid-template-areas:
+      'header'
+      'description'
+      'health'
+      'behavior'
+      'button';
+  }
+
+  .modal-image {
+    width: 576px;
+    height: 450px;
+  }
+
+  .modal-info-btn {
+    height: 48px;
+  }
+
+  .modal-species,
+  .modal-meta {
+    font-size: 14px;
+  }
+
+  .modal-name {
+    font-size: 40px;
+  }
+
+  .modal-info-text,
+  .modal-info-h3 {
+    font-size: 16px;
+  }
+}
