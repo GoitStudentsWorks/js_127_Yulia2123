@@ -1,0 +1,54 @@
+<div class="modal-overlay" id="order-modal">
+  <div class="modal">
+    <button class="modal-close-btn" type="button" data-modal-close>
+      <svg class="modal-close-icon" width="24" height="24">
+        <use href="./img/sprite.svg#icon-close"></use>
+      </svg>
+    </button>
+    <h3 class="modal-title bold">Залишіть заявку на знайомство</h3>
+    <form>
+      <div class="input-group">
+        <label for="username-basic" class="modal-label regular">Ім’я*</label>
+        <div class="input-container error">
+          <input
+            type="text"
+            name="Name"
+            id="username-basic"
+            class="modal-input"
+            placeholder="Андрій"
+          />
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="phone-basic" class="modal-label regular">Телефон*</label>
+        <div class="input-container error">
+          <input
+            type="tel"
+            name="Phone"
+            id="phone-basic"
+            class="modal-input"
+            placeholder="380955559922"
+          />
+        </div>
+      </div>
+      <div class="input-group-row">
+        <div class="input-group">
+          <label for="comment-basic" class="modal-label regular"
+            >Коментар</label
+          >
+          <div class="input-container textarea-container error">
+            <textarea
+              id="comment-basic"
+              name="comment"
+              rows="5"
+              cols="30"
+              class="modal-input"
+              placeholder="Напишіть ваш коментар"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="modal-submit-btn regular">Надіслати</button>
+    </form>
+  </div>
+</div>
