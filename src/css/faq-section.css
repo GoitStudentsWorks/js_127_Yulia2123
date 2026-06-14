@@ -1,0 +1,160 @@
+.faq-section {
+  background: #f6f4f1;
+  /* width: 100%; */
+  padding: 64px 0;
+}
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.faq-title {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: #02060a;
+  margin-bottom: 40px;
+}
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 335px;
+  list-style: none;
+  margin: 0;
+}
+
+.faq-item {
+  background: #f6f4f1;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.faq-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border: 0px solid rgba(2, 6, 10, 0.15);
+  background: #eee9e3;
+  padding: 20px 24px;
+  gap: 24px;
+  cursor: pointer;
+  text-align: left;
+  outline: none;
+}
+.faq-button:focus,
+.faq-button:focus-visible {
+  outline: none;
+}
+
+.faq-question {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #02060a;
+}
+.faq-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  fill: #02060a;
+  stroke-width: 1px;
+}
+
+.icon-close {
+  display: none;
+  stroke: #02060a;
+}
+.icon-plus {
+  display: block;
+}
+
+.faq-item.is-open .icon-plus {
+  display: none;
+}
+
+.faq-item.is-open .icon-close {
+  display: block;
+}
+
+.faq-content {
+  display: none;
+  background: #eee9e3;
+  padding: 0px 24px 24px;
+}
+
+.faq-item.is-open .faq-content {
+  display: block;
+}
+
+.faq-content p,
+.faq-answer-list li {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #02060a;
+}
+
+.faq-content p {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.faq-content p:last-child {
+  margin-bottom: 0;
+}
+
+.faq-answer-list {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.faq-answer-list.faq-numbered {
+  list-style: decimal;
+}
+
+.faq-answer-list.faq-bullets {
+  list-style: disc;
+}
+
+.faq-answer-list li {
+  margin-bottom: 12px;
+}
+
+.faq-answer-list li:last-child {
+  margin-bottom: 0;
+}
+@media screen and (min-width: 768px) {
+  .faq-title {
+    margin-bottom: 80px;
+  }
+  .faq-list {
+    max-width: 704px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .faq-section {
+    padding: 80px 0;
+  }
+  .faq-title {
+    font-size: 48px;
+  }
+  .faq-list {
+    max-width: 864px;
+  }
+  .faq-question {
+    font-size: 18px;
+  }
+  .faq-content p,
+  .faq-answer-list li {
+    font-size: 16px;
+  }
+}
