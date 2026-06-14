@@ -1,0 +1,9 @@
+import './js/modal-menu.js';
+import './js/order-modal.js';
+import './js/faq-section.js';
+import './js/animal-details-modal.js';
+import './js/success-stories.js';
+import './js/hero.js';
+import './js/pets-list.js';
+import './js/about-us.js';
+import './js/footer.js';
