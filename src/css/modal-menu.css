@@ -1,5 +1,6 @@
 /* styles for mobile-menu */
 
+
 .mobile-menu {
     position: fixed;
     top: 0;
@@ -11,13 +12,17 @@
     opacity: 0;
     pointer-events: none;
     visibility: hidden;
-    z-index: 9;
+    z-index: 9999;
+
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
 }
 
-.is-open {
+.mobile-menu.is-open {
     opacity: 1;
     pointer-events: auto;
     visibility: visible;
+
+    transform: translateY(0);
 }
 
 .mbl-menu-top {

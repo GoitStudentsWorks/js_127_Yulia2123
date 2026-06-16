@@ -5,7 +5,21 @@
 *::after {
   box-sizing: border-box;
 }
+/* для того щоб хедер не закривав содержимое секції при переході по якірному посиланні */
+:target {
+  scroll-margin-top: 64px;
+}
 
+/* для того щоб хедер не закривав частину "hiro" */
+main {
+  margin-top: 64px;
+}
+
+.section-header {
+  background-color: #f6f4f1;
+  position: fixed;
+width: 100%;
+}
 .header-nav {
   display: flex;
 justify-content: space-between;
@@ -16,11 +30,11 @@ align-items: center;
   outline: none;
 }
 
-.icon-logo {
+.header-icon-logo {
  display: flex;
   align-items: center;
   fill: #332C22;
-  padding: 5px 0;
+  height: 64px;
 }
 
 .header-nav-list {
@@ -31,7 +45,7 @@ align-items: center;
   display: flex;
   align-items: center;
   justify-content: center;
-padding: 0;
+
 fill: #02060a;
 }
 
@@ -42,7 +56,7 @@ fill: #02060a;
   border: none;
   background: transparent;
   outline: none;
-  padding: 0;
+padding: 0;
 }
 
 .header-btn {
@@ -52,20 +66,32 @@ fill: #02060a;
 
 @media screen and (min-width: 768px) {
 
+}
 
-} 
 
 
-@media screen and (min-width: 1440px) {
 
+@media screen and (min-width: 1440px) { 
+
+/* для того щоб хедер не закривав содержимое секції при переході по якірному посиланні */
+  :target {
+      scroll-margin-top: 72px;
+    }
+
+        /* для того щоб хедер не закривав частину "hiro" */
+main{
+  margin-top: 72px;
+}
   
 .header-nav {
     display: flex;
     align-items: center;
   }
 
-  .icon-logo {
+  .header-icon-logo {
+    width: 158px;
     margin-right: 24px;
+    height: 72px;
   }
 
    
