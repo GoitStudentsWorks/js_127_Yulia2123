@@ -99,7 +99,8 @@
   gap: 16px;
 }
 
-.modal-info-h3 {
+.modal-info-h3,
+.modal-info-text {
   font-size: 14px;
 }
 
