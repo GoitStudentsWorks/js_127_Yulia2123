@@ -4,7 +4,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-const swiperFeedback = new Swiper('.swiper', {
+const swiperFeedback = new Swiper('.feedback-swiper', {
   modules: [Navigation, Pagination],
   direction: 'horizontal',
   loop: false,
@@ -14,7 +14,7 @@ const swiperFeedback = new Swiper('.swiper', {
   allowTouchMove: false,
 
   pagination: {
-    el: '.swiper-pagination',
+    el: '.feedback-swiper-pagination',
     clickable: false,
   },
 
