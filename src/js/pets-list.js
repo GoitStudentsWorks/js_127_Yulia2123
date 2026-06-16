@@ -1,46 +1,94 @@
 import axios from "axios";
 
-const filterList = document.querySelector('.pets-list');
-const galleryContainer = document.querySelector('.pets-cards');
+const filterContainer = document.querySelector('.pets-list');
 
-const BASE_URL = "https://paw-hut.b.goit.study";
+const axiosInstance = axios.create({
+    baseURL: 'https://paw-hut.b.goit.study',
+});
+
 let activeFilters = [];
 
-const categoryToIdMap = {
-    'dogs': '667ac6a4e4b0c8a2a7c1c1a1',
-    'cats': '667ac6a4e4b0c8a2a7c1c1a2',
-    'rabbits': '667ac6a4e4b0c8a2a7c1c1a3',
-    'rodents': '667ac6a4e4b0c8a2a7c1c1a4',
-    'birds': '667ac6a4e4b0c8a2a7c1c1a5',
-    'special': '667ac6a4e4b0c8a2a7c1c1a6',
-    'urgent': '667ac6a4e4b0c8a2a7c1c1a7'
-};
+async function initPetFilters() {
+    if (!filterContainer) return;
 
-function initPetFilters() {
-    if (!filterList) return;
+    await renderFilterButtons();
 
-    filterList.addEventListener('click', async (e) => {
+    setupFilterListener();
+}
+
+async function renderFilterButtons() {
+    try {
+        const response = await axiosInstance.get('/api/categories');
+        const categories = response.data;
+
+        /*ЦЕ Я ЗРОБИВ КАСТОМНЕ СОРТУВАННЯ ДЛЯ ВІДОБРАЖЕННЯ ЯК НА МАКЕТІ*/
+        const customOrder = [
+            "Собаки",
+            "Коти",
+            "Кролики",
+            "Гризуни",
+            "Птахи",
+            "Тварини з особливими потребами",
+            "Терміново шукають дім",
+        ];
+
+        let buttonsMarkup = `
+            <li>
+                <button type="button" class="filter-btn active" data-category="all">
+                    Всі
+                </button>
+            </li>
+        `;
+
+        categories.sort((a, b) => {
+            const aIndex = customOrder.indexOf(a.name);
+            const bIndex = customOrder.indexOf(b.name);
+
+            return (aIndex === -1 ? Infinity : aIndex) -
+                (bIndex === -1 ? Infinity : bIndex);
+        });
+
+        buttonsMarkup += categories.map(filter => {
+            return `
+                <li>
+                    <button type="button" class="filter-btn" data-category="${filter._id}">
+                        ${filter.name}
+                    </button>
+                </li>
+            `;
+        }).join('');
+
+        filterContainer.innerHTML = buttonsMarkup;
+
+    } catch (error) {
+        console.error("Помилка завантаження категорій з БД:", error);
+        filterContainer.innerHTML = '<li>Помилка завантаження фільтрів</li>';
+    }
+}
+
+function setupFilterListener() {
+    filterContainer.addEventListener('click', (e) => {
         const btnElem = e.target.closest('[data-category]');
         if (!btnElem) return;
 
-        const categorySlug = btnElem.dataset.category;
-        const allBtn = filterList.querySelector('[data-category="all"]');
+        const categoryId = btnElem.dataset.category; 
+        const allBtn = filterContainer.querySelector('[data-category="all"]');
 
-        if (categorySlug === 'all') {
+        if (categoryId === 'all') {
             activeFilters = [];
-            const activeButtons = filterList.querySelectorAll('.filter-btn.active');
+            const activeButtons = filterContainer.querySelectorAll('.filter-btn.active');
             activeButtons.forEach(btn => btn.classList.remove('active'));
             allBtn.classList.add('active');
         } else {
             if (allBtn) allBtn.classList.remove('active');
             btnElem.classList.toggle('active');
 
-            const backendId = categoryToIdMap[categorySlug];
-
             if (btnElem.classList.contains('active')) {
-                activeFilters.push(backendId);
+                if (!activeFilters.includes(categoryId)) {
+                    activeFilters.push(categoryId);
+                }
             } else {
-                activeFilters = activeFilters.filter(item => item !== backendId);
+                activeFilters = activeFilters.filter(item => item !== categoryId);
             }
 
             if (activeFilters.length === 0 && allBtn) {
@@ -48,26 +96,9 @@ function initPetFilters() {
             }
         }
 
-        try {
-            galleryContainer.innerHTML = '<li class="loading">Завантаження...</li>';
-            let response;
-
-            if (activeFilters.length === 0) {
-                response = await axios.get(`${BASE_URL}/api/animals?page=1&limit=10`); 
-            } else {
-                const categoriesQuery = activeFilters.join(',');
-                
-                response = await axios.get(`${BASE_URL}/api/animals?page=1&limit=10&category=${categoriesQuery}`);
-            }
-
-            /* МАЙБУТНЯ ФУНКЦІЯ РЕНДЕРУ
-            markup(response.data);
-            */
-
-        } catch (error) {
-            console.error("Помилка фільтрації:", error);
-            galleryContainer.innerHTML = '<li style="color: red;">Не вдалося завантажити тварин.</li>';
-        }
+        /* МАЙБУТНЯ ФУНКЦІЯ РЕНДЕРУ
+        markup(activeFilters); 
+        */
     });
 }
 
