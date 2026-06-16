@@ -27,6 +27,7 @@
 .modal {
   max-height: 90vh;
   width: 90%;
+  -webkit-overflow-scrolling: touch;
   position: relative;
   padding: 64px 20px;
   border-radius: 8px;
@@ -35,6 +36,10 @@
   /* display: flex; */
   flex-direction: column;
   /* height: 100%; */
+}
+
+body.modal-open {
+  overflow: hidden;
 }
 
 .modal-close-btn {
