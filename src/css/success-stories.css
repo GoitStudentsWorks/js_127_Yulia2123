@@ -149,7 +149,5 @@
   width: auto !important;
   margin-right: auto;
 }
-.swiper-wrapper {
-  pointer-events: none;
-}
+
 /* #endregion swiper */

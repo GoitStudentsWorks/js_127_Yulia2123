@@ -11,11 +11,11 @@ const swiperFeedback = new Swiper('.feedback-swiper', {
   slidesPerView: 1,
   spaceBetween: 10,
 
-  allowTouchMove: false,
+  allowTouchMove: true,
 
   pagination: {
     el: '.feedback-swiper-pagination',
-    clickable: false,
+    clickable: true,
   },
 
   navigation: {
