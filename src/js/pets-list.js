@@ -9,27 +9,46 @@ const getCategories = async () => {
     return response.data;
 }
 
+const categoryTranslations = {
+    "dogs": "Собаки",
+    "cats": "Коти",
+    "rabbits": "Кролики",
+    "rodents": "Гризуни",
+    "birds": "Птахи",
+    "special": "Тварини з особливими потребами",
+    "urgent": "Терміново шукають дім",
+};
+
 const filterBtns = document.querySelectorAll('[data-category]');
 
 filterBtns.forEach(button => {
-    button.addEventListener ('click', async (e) => {
-        const selectedCategory = e.target.dataset.category;
+    button.addEventListener('click', async (e) => {
+        const englishCategory = e.target.dataset.category.toLowerCase();
+
+        const ukrainianName = categoryTranslations[englishCategory];
+
+        if (!ukrainianName) {
+            console.error(`Не знайдено перекладу для категорії: ${englishCategory}`);
+            return;
+        }
 
         try {
-            const allCategories = await getCategories();
+            const allCategories = await getCategories(); 
+            const foundCategory = allCategories.find(
+                item => item.name.toLowerCase() === ukrainianName.toLowerCase()
+            );
 
-            const foundCategory = allCategories.find((item) => {item.name === selectedCategory})
-
-            if (foundCategory){
-                const categoryId = foundCategory._id;
+            if (foundCategory) {
+                const categoryId = foundCategory._id || foundCategory.id;
                 const categoryName = foundCategory.name;
 
-                console.log("Знайдено категорію для рендеру:", { id: categoryId, name: categoryName });
-            }else {
-                console.warn(`Категорію "${selectedCategory}" не знайдено на бекенді.`);
+                console.log({ id: categoryId, name: categoryName });
+            } else {
+                console.warn(`Категорію "${ukrainianName}" не знайдено на бекенді.`);
             }
-        }catch (error) {
-            console.error("Помилка при отриманні або фільтрації категорій:", error);
+
+        } catch (error) {
+            console.error("Помилка:", error);
         }
     });
 });
