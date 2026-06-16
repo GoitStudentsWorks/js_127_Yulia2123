@@ -153,7 +153,9 @@ textarea.modal-input {
 
 .input-container {
   position: relative;
-  border: 1px solid transparent;
+  /* border: 1px solid transparent; */
+  border: 1px solid rgba(13, 11, 10, 0.15);
+
   background-color: rgba(13, 11, 10, 0.05);
   border-radius: 12px;
   min-height: 42px;
@@ -162,9 +164,9 @@ textarea.modal-input {
     fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* .input-container.error {
-  border-color: rgba(177, 0, 0, 1);
-} */
+.input-container.error {
+  border-color: rgba(177, 0, 0, 1) !important;
+}
 
 /* .input-container.error .modal-input,
 .input-container.error .modal-input::placeholder {
@@ -173,6 +175,7 @@ textarea.modal-input {
 /* .input-container.error input::placeholder,
 .input-container.error textarea::placeholder {
   color: rgba(177, 0, 0, 1);
+  border-color: rgba(177, 0, 0, 1);
 }
 
 .input-container.error input::placeholder,
