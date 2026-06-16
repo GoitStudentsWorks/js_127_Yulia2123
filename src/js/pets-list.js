@@ -61,8 +61,7 @@ async function renderFilterButtons() {
         filterContainer.innerHTML = buttonsMarkup;
 
     } catch (error) {
-        console.error("Помилка завантаження категорій з БД:", error);
-        filterContainer.innerHTML = '<li>Помилка завантаження фільтрів</li>';
+        filterContainer.innerHTML = '<li>Не вдалося корректно виконати код. Помилка:${error}</li>';
     }
 }
 
