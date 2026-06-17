@@ -128,7 +128,9 @@ function hideLoadMoreButton() {
 }
 
 function checkTotalPages() {
-  if (page >= totalPages) {
+  if (totalPages <= 1) {
+    hideLoadMoreButton();
+  } else if (page >= totalPages) {
     hideLoadMoreButton();
     iziToast.info({
       title: `Вибачте, але ви дійшли до кінця списку результатів пошуку.`,
@@ -268,6 +270,7 @@ function setupFilterListener() {
 
     page = 1;
     currentLimit = windowLimit();
+    showLoadMoreButton(); 
 
     if (categoryId === 'all') {
       serverCategoryId = '';
