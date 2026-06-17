@@ -4,18 +4,18 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-const swiperFeedback = new Swiper('.swiper', {
+const swiperFeedback = new Swiper('.feedback-swiper', {
   modules: [Navigation, Pagination],
   direction: 'horizontal',
   loop: false,
   slidesPerView: 1,
   spaceBetween: 10,
 
-  allowTouchMove: false,
+  allowTouchMove: true,
 
   pagination: {
-    el: '.swiper-pagination',
-    clickable: false,
+    el: '.feedback-swiper-pagination',
+    clickable: true,
   },
 
   navigation: {
