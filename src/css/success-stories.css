@@ -1,7 +1,13 @@
+/* #region section */
+.success-stories {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+/* #endregion section */
 /* #region title/subtitle */
 
 .success-stories-title {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   font-size: 36px;
   line-height: 1.2;
@@ -9,10 +15,9 @@
   text-align: center;
   color: #02060a;
   margin-bottom: 24px;
-  margin-top: 80px;
 }
 .success-stories-subtitle {
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
@@ -33,14 +38,14 @@
   font-weight: 600;
   font-size: 14px;
   line-height: 1.5;
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 .feedback-comment {
   width: 100%;
   font-weight: 400;
   font-size: 18px;
   line-height: 1.5;
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   margin: 32px 0px;
 }
 .feedback-list :first-child {
@@ -102,7 +107,6 @@
   display: flex;
   justify-content: flex-end;
   column-gap: 16px;
-  margin-bottom: 80px;
   margin-top: 40px;
   align-items: baseline;
 }
@@ -126,6 +130,10 @@
 }
 /* Styles for Desktop devices */
 @media only screen and (min-width: 1400px) {
+  .success-stories {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
   .success-stories-title {
     font-size: 48px;
   }
@@ -149,5 +157,14 @@
   width: auto !important;
   margin-right: auto;
 }
-
+.swiper-pagination-bullet {
+  width: var(
+    --swiper-pagination-bullet-width,
+    var(--swiper-pagination-bullet-size, 12px) 
+  ) !important;
+  height: var(
+    --swiper-pagination-bullet-height,
+    var(--swiper-pagination-bullet-size, 12px)
+  ) !important;
+}
 /* #endregion swiper */

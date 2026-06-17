@@ -33,8 +33,8 @@ const swiperFeedback = new Swiper('.feedback-swiper', {
 swiperFeedback.on('reachEnd', () => {
   console.log('end');
 });
-let PER_PAGE = 3;
-let TOTAL;
+let PER_PAGE = 4;
+let TOTAL_SEARCH_RESULTS;
 let TOTAL_PAGES;
 let CURRENT_PAGE;
 const refs = {
@@ -129,39 +129,8 @@ function slideTemplate(elem) {
 
 function createSlides(array) {
   const markup = array.map(el => slideTemplate(el));
-  renderSlides(markup)
 }
 function renderSlides(slides) {
   swiperFeedback.appendSlide([...slides]);
 }
 
-createSlides([
-  {
-    _id: '667abea5e4b0c8a2a7c1c1fa',
-    description:
-      'Ми взяли морську свинку для дитини. Все пройшло чудово, тваринка доглянута. Дякуємо за вашу важливу працю!',
-    rate: 5,
-    author: 'Віктор Савченко',
-  },
-  {
-    _id: '667abea5e4b0c8a2a7c1c200',
-    description:
-      'Взяли папугу Кешу, він чудовий! Описи тварин на сайті повністю відповідають дійсності, що дуже важливо для майбутніх господарів.',
-    rate: 5,
-    author: 'Павло Захарченко',
-  },
-  {
-    _id: '667abea5e4b0c8a2a7c1c213',
-    description:
-      'Дякуємо! Ваша діяльність змінює світ на краще. Раді, що стали частиною цієї доброї справи.',
-    rate: 5,
-    author: 'Євгенія Лимар',
-  },
-  {
-    _id: '667abea5e4b0c8a2a7c1c217',
-    description:
-      'Нам детально розповіли про характер собаки, його звички та страхи. Це дуже допомогло у перші дні.',
-    rate: 5,
-    author: 'Інна Кузьменко',
-  },
-]);
