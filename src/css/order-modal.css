@@ -13,7 +13,8 @@
   pointer-events: none;
   display: flex;
 
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  transition:
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -55,7 +56,8 @@ body.modal-open {
   justify-content: center;
   padding: 0;
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  transition:
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -165,7 +167,8 @@ textarea.modal-input {
   border-radius: 12px;
   min-height: 42px;
 
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  transition:
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -188,6 +191,12 @@ textarea.modal-input {
   color: rgba(177, 0, 0, 1);
 } */
 
+.modal-input:-webkit-autofill {
+  border-radius: 12px;
+  -webkit-box-shadow: 0 0 0 1000px rgba(13, 11, 10, 0.05) inset;
+  box-shadow: 0 0 0 1000px rgba(13, 11, 10, 0.05) inset;
+}
+
 .modal-submit-btn {
   display: block;
   width: 100%;
@@ -200,7 +209,8 @@ textarea.modal-input {
   /* font-weight: 500; */
   letter-spacing: 0em;
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  transition:
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 

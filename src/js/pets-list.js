@@ -127,7 +127,9 @@ function hideLoadMoreButton() {
 }
 
 function checkTotalPages() {
-  if (page >= totalPages) {
+  if (totalPages <= 1) {
+    hideLoadMoreButton();
+  } else if (page >= totalPages) {
     hideLoadMoreButton();
     iziToast.info({
       title: `Вибачте, але ви дійшли до кінця списку результатів пошуку.`,
@@ -173,9 +175,11 @@ loadMoreBtn.addEventListener('click', async () => {
 
       petsGallery(data.animals, page);
 
+
       checkTotalPages();
     } catch (error) {
       console.error(error);
+
     }
   }
 });
@@ -243,9 +247,11 @@ async function renderFilterButtons() {
       .join('');
 
     filterContainer.innerHTML = buttonsMarkup;
-  } catch (error) {
-    filterContainer.innerHTML =
-      '<li>Не вдалося корректно виконати код. Помилка:${error}</li>';
+  } catch {
+      iziToast.error({
+        title: 'Вибачте, сталася помилка відмалювання кнопок.',
+        position: 'topRight',
+      });
   }
 }
 
@@ -263,6 +269,7 @@ function setupFilterListener() {
 
     page = 1;
     currentLimit = windowLimit();
+    showLoadMoreButton(); 
 
     if (categoryId === 'all') {
       serverCategoryId = '';
@@ -290,9 +297,11 @@ function setupFilterListener() {
 
       petsGallery(data.animals, page);
 
+
       checkTotalPages();
     } catch (error) {
       console.error(error);
+
     }
   });
 }
