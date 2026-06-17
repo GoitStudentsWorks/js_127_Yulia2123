@@ -7,6 +7,7 @@
   letter-spacing: -0.01em;
   text-align: center;
   margin-bottom: 16px;
+  padding-top: 64px;
 }
 
 .section-subtitle {
@@ -31,14 +32,14 @@
 .filter-btn {
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 14px;
-  background-color: #ffffff;
+  background-color: #f6f4f1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   width: 100%;
   font-weight: 400;
-  border: 1px solid #ffffff;
+  border: 1px solid #f6f4f1;
   border-radius: 100px;
   padding: 10px 16px;
   height: 41px;
@@ -97,6 +98,9 @@
 }
 
 .pet-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
   margin-top: 16px;
 }
 
@@ -162,6 +166,7 @@
   font-size: 14px;
   line-height: 1.5;
   color: #02060a;
+  margin-top: auto;
   transition:
     background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     color 250ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -259,6 +264,10 @@
 
 /* Styles for Desktop devices */
 @media only screen and (min-width: 1440px) {
+  .section-title {
+    padding-top: 80px;
+  }
+
   .section-title {
     font-size: 48px;
   }
