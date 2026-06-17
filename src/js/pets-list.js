@@ -226,65 +226,46 @@ function setupFilterListener() {
     if (!btnElem) return;
 
     const categoryId = btnElem.dataset.category;
-    const allBtn = filterContainer.querySelector('[data-category="all"]');
+
+    const allButtons = filterContainer.querySelectorAll('.filter-btn');
+    allButtons.forEach(btn => btn.classList.remove('active'));
+
+    btnElem.classList.add('active');
+
+    page = 1;
+    currentLimit = windowLimit();
 
     if (categoryId === 'all') {
-      activeFilters = [];
-      const activeButtons =
-        filterContainer.querySelectorAll('.filter-btn.active');
-      activeButtons.forEach(btn => btn.classList.remove('active'));
-      allBtn.classList.add('active');
-    } else {
-      if (allBtn) allBtn.classList.remove('active');
-      btnElem.classList.toggle('active');
-
-      if (btnElem.classList.contains('active')) {
-        if (!activeFilters.includes(categoryId)) {
-          activeFilters.push(categoryId);
-        }
-      } else {
-        activeFilters = activeFilters.filter(item => item !== categoryId);
-      }
-
-      if (activeFilters.length === 0 && allBtn) {
-        allBtn.classList.add('active');
-      }
+      serverCategoryId = '';
+    }else {
+      serverCategoryId = categoryId;
     }
 
-      page = 1;
-      currentLimit = windowLimit();
-
-      if (categoryId === 'all' || activeFilters.length === 0) {
-        serverCategoryId = '';
-      } else{
-        serverCategoryId = activeFilters[activeFilters.length - 1];
+    try {
+      const queryParams = {
+          page: page,
+          limit: currentLimit
       }
 
-      try {
-        const queryParams = {
-            page: page,
-            limit: currentLimit
-        }
-
-        if (serverCategoryId){
-            queryParams.categoryId = serverCategoryId;
-        }
-
-        const res = await axiosInstance.get('/api/animals', {
-            params: queryParams
-        });
-
-        const data = res.data;
-
-        totalPages = Math.ceil(data.totalItems / currentLimit);
-        animalsData = data.animals;
-
-        petsGallery(data.animals, page);
-
-        checkTotalPages()
-      }catch (error){
-        console.error(error);
+      if (serverCategoryId){
+          queryParams.categoryId = serverCategoryId;
       }
+
+      const res = await axiosInstance.get('/api/animals', {
+          params: queryParams
+      });
+
+      const data = res.data;
+
+      totalPages = Math.ceil(data.totalItems / currentLimit);
+      animalsData = data.animals;
+
+      petsGallery(data.animals, page);
+
+      checkTotalPages()
+    }catch (error){
+      console.error(error);
+    }
   });
 }
 
