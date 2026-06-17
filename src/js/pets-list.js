@@ -14,7 +14,10 @@ let page = 1;
 let currentLimit;
 let totalPages;
 let animalsData = [];
+
 let serverCategoryId = '';
+
+
 
 export function getAnimalsData() {
   return animalsData;
@@ -137,18 +140,46 @@ function checkTotalPages() {
 }
 
 loadMoreBtn.addEventListener('click', async () => {
-  page = page + 1;
-  try {
-    const data = await fetchAnimals(page, currentLimit);
-    animalsData = [...animalsData, ...data.animals];
-    petsGallery(data.animals, page);
-    checkTotalPages();
+    page = page + 1;
+    if (serverCategoryId === '') {
+        try {
+        const data = await fetchAnimals(page, currentLimit);
+        animalsData = [...animalsData, ...data.animals];
+        petsGallery(data.animals, page);
+        checkTotalPages();
   } catch {
     iziToast.error({
       title: 'Вибачте, сталася помилка',
       position: 'topRight',
     });
   }
+    } else {
+            try {
+      const queryParams = {
+          page: page,
+          limit: currentLimit
+      }
+
+      if (serverCategoryId){
+          queryParams.categoryId = serverCategoryId;
+      }
+
+      const res = await axiosInstance.get('/api/animals', {
+          params: queryParams
+      });
+
+      const data = res.data;
+
+      totalPages = Math.ceil(data.totalItems / currentLimit);
+      animalsData = data.animals;
+
+      petsGallery(data.animals, page);
+
+      checkTotalPages()
+    }catch (error){
+      console.error(error);
+    }
+}
 });
 
 const filterContainer = document.querySelector('.pets-list');
@@ -241,8 +272,7 @@ function setupFilterListener() {
       serverCategoryId = '';
     }else {
       serverCategoryId = categoryId;
-    }
-
+      }
     try {
       const queryParams = {
           page: page,

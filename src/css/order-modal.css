@@ -27,7 +27,7 @@
 .modal {
   max-height: 90vh;
   width: 90%;
-  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
   position: relative;
   padding: 64px 20px;
   border-radius: 8px;
