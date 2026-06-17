@@ -27,9 +27,6 @@
 }
 /* #endregion title/subtitle */
 /* #region feedback */
-.feedback-item {
-  display: none;
-}
 .feedback-list {
   margin-top: 40px;
 }
@@ -48,10 +45,7 @@
   font-family: 'IBM Plex Sans', sans-serif;
   margin: 32px 0px;
 }
-.feedback-list :first-child {
-  display: flex;
-  flex-direction: column;
-}
+
 /* #endregion feedback */
 /* #region star */
 #stars-wrapper {
