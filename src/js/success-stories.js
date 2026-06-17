@@ -9,7 +9,7 @@ const swiperFeedback = new Swiper('.feedback-swiper', {
   direction: 'horizontal',
   loop: false,
   slidesPerView: 1,
-  spaceBetween: 10,
+  spaceBetween: 32,
 
   allowTouchMove: true,
 
@@ -25,7 +25,7 @@ const swiperFeedback = new Swiper('.feedback-swiper', {
   breakpoints: {
     768: {
       slidesPerView: 2,
-      spaceBetween: 20,
+      spaceBetween: 32,
     },
   },
 });
@@ -52,13 +52,13 @@ function slideTemplate(elem) {
                     <svg class="star-empty" id="empty-black-star">
                       <use
                         xmlns:xlink="http://www.w3.org/1999/xlink"
-                        xlink:href="../img/sprite.svg#icon-star-empty"
+                        xlink:href="./img/sprite.svg#icon-star-empty"
                       ></use>
                     </svg>
                     <svg class="star-filled" id="filled-black-star">
                       <use
                         xmlns:xlink="http://www.w3.org/1999/xlink"
-                        xlink:href="../img/sprite.svg#icon-star-filled"
+                        xlink:href="./img/sprite.svg#icon-star-filled"
                       ></use>
                     </svg>
                   </div>
@@ -66,13 +66,13 @@ function slideTemplate(elem) {
                     <svg class="star-empty" id="empty-black-star">
                       <use
                         xmlns:xlink="http://www.w3.org/1999/xlink"
-                        xlink:href="../img/sprite.svg#icon-star-empty"
+                        xlink:href="./img/sprite.svg#icon-star-empty"
                       ></use>
                     </svg>
                     <svg class="star-filled" id="filled-black-star">
                       <use
                         xmlns:xlink="http://www.w3.org/1999/xlink"
-                        xlink:href="../img/sprite.svg#icon-star-filled"
+                        xlink:href="./img/sprite.svg#icon-star-filled"
                       ></use>
                     </svg>
                   </div>
@@ -80,13 +80,13 @@ function slideTemplate(elem) {
                     <svg class="star-empty" id="empty-black-star">
                       <use
                         xmlns:xlink="http://www.w3.org/1999/xlink"
-                        xlink:href="../img/sprite.svg#icon-star-empty"
+                        xlink:href="./img/sprite.svg#icon-star-empty"
                       ></use>
                     </svg>
                     <svg class="star-filled" id="filled-black-star">
                       <use
                         xmlns:xlink="http://www.w3.org/1999/xlink"
-                        xlink:href="../img/sprite.svg#icon-star-filled"
+                        xlink:href="./img/sprite.svg#icon-star-filled"
                       ></use>
                     </svg>
                   </div>
@@ -94,13 +94,13 @@ function slideTemplate(elem) {
                     <svg class="star-empty" id="empty-black-star">
                       <use
                         xmlns:xlink="http://www.w3.org/1999/xlink"
-                        xlink:href="../img/sprite.svg#icon-star-empty"
+                        xlink:href="./img/sprite.svg#icon-star-empty"
                       ></use>
                     </svg>
                     <svg class="star-filled" id="filled-black-star">
                       <use
                         xmlns:xlink="http://www.w3.org/1999/xlink"
-                        xlink:href="../img/sprite.svg#icon-star-filled"
+                        xlink:href="./img/sprite.svg#icon-star-filled"
                       ></use>
                     </svg>
                   </div>
@@ -108,13 +108,13 @@ function slideTemplate(elem) {
                     <svg class="star-empty" id="empty-black-star">
                       <use
                         xmlns:xlink="http://www.w3.org/1999/xlink"
-                        xlink:href="../img/sprite.svg#icon-star-empty"
+                        xlink:href="./img/sprite.svg#icon-star-empty"
                       ></use>
                     </svg>
                     <svg class="star-filled" id="filled-black-star">
                       <use
                         xmlns:xlink="http://www.w3.org/1999/xlink"
-                        xlink:href="../img/sprite.svg#icon-star-filled"
+                        xlink:href="./img/sprite.svg#icon-star-filled"
                       ></use>
                     </svg>
                   </div>
