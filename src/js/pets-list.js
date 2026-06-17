@@ -13,6 +13,11 @@ const loadMoreBtn = document.querySelector('.load-more-btn');
 let page = 1;
 let currentLimit;
 let totalPages;
+let animalsData = [];
+
+export function getAnimalsData() {
+  return animalsData;
+}
 
 function windowLimit() {
   const windowWidth = window.innerWidth;
@@ -101,6 +106,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   try {
     const data = await fetchAnimals(page, currentLimit);
     totalPages = Math.ceil(data.totalItems / currentLimit);
+    animalsData = [...animalsData, ...data.animals];
     petsGallery(data.animals, page);
     checkTotalPages();
   } catch {
@@ -133,6 +139,7 @@ loadMoreBtn.addEventListener('click', async () => {
   page = page + 1;
   try {
     const data = await fetchAnimals(page, currentLimit);
+    animalsData = [...animalsData, ...data.animals];
     petsGallery(data.animals, page);
     checkTotalPages();
   } catch {
