@@ -14,6 +14,7 @@ let page = 1;
 let currentLimit;
 let totalPages;
 let animalsData = [];
+let serverCategoryId = '';
 
 export function getAnimalsData() {
   return animalsData;
@@ -220,7 +221,7 @@ async function renderFilterButtons() {
 }
 
 function setupFilterListener() {
-  filterContainer.addEventListener('click', e => {
+  filterContainer.addEventListener('click', async e => {
     const btnElem = e.target.closest('[data-category]');
     if (!btnElem) return;
 
@@ -249,6 +250,41 @@ function setupFilterListener() {
         allBtn.classList.add('active');
       }
     }
+
+      page = 1;
+      currentLimit = windowLimit();
+
+      if (categoryId === 'all' || activeFilters.length === 0) {
+        serverCategoryId = '';
+      } else{
+        serverCategoryId = activeFilters[activeFilters.length - 1];
+      }
+
+      try {
+        const queryParams = {
+            page: page,
+            limit: currentLimit
+        }
+
+        if (serverCategoryId){
+            queryParams.categoryId = serverCategoryId;
+        }
+
+        const res = await axiosInstance.get('/api/animals', {
+            params: queryParams
+        });
+
+        const data = res.data;
+
+        totalPages = Math.ceil(data.totalItems / currentLimit);
+        animalsData = data.animals;
+
+        petsGallery(data.animals, page);
+
+        checkTotalPages()
+      }catch (error){
+        console.error(error);
+      }
   });
 }
 
