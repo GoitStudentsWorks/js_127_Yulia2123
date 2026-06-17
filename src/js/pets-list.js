@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
@@ -16,8 +15,6 @@ let totalPages;
 let animalsData = [];
 
 let serverCategoryId = '';
-
-
 
 export function getAnimalsData() {
   return animalsData;
@@ -140,32 +137,33 @@ function checkTotalPages() {
 }
 
 loadMoreBtn.addEventListener('click', async () => {
-    page = page + 1;
-    if (serverCategoryId === '') {
-        try {
-        const data = await fetchAnimals(page, currentLimit);
-        animalsData = [...animalsData, ...data.animals];
-        petsGallery(data.animals, page);
-        checkTotalPages();
-  } catch {
-    iziToast.error({
-      title: 'Вибачте, сталася помилка',
-      position: 'topRight',
-    });
-  }
-    } else {
-            try {
-      const queryParams = {
-          page: page,
-          limit: currentLimit
-      }
+  page = page + 1;
 
-      if (serverCategoryId){
-          queryParams.categoryId = serverCategoryId;
+  if (serverCategoryId === '') {
+    try {
+      const data = await fetchAnimals(page, currentLimit);
+      animalsData = [...animalsData, ...data.animals];
+      petsGallery(data.animals, page);
+      checkTotalPages();
+    } catch {
+      iziToast.error({
+        title: 'Вибачте, сталася помилка',
+        position: 'topRight',
+      });
+    }
+  } else {
+    try {
+      const queryParams = {
+        page: page,
+        limit: currentLimit,
+      };
+
+      if (serverCategoryId) {
+        queryParams.categoryId = serverCategoryId;
       }
 
       const res = await axiosInstance.get('/api/animals', {
-          params: queryParams
+        params: queryParams,
       });
 
       const data = res.data;
@@ -175,11 +173,11 @@ loadMoreBtn.addEventListener('click', async () => {
 
       petsGallery(data.animals, page);
 
-      checkTotalPages()
-    }catch (error){
+      checkTotalPages();
+    } catch (error) {
       console.error(error);
     }
-}
+  }
 });
 
 const filterContainer = document.querySelector('.pets-list');
@@ -268,21 +266,21 @@ function setupFilterListener() {
 
     if (categoryId === 'all') {
       serverCategoryId = '';
-    }else {
+    } else {
       serverCategoryId = categoryId;
-      }
+    }
     try {
       const queryParams = {
-          page: page,
-          limit: currentLimit
-      }
+        page: page,
+        limit: currentLimit,
+      };
 
-      if (serverCategoryId){
-          queryParams.categoryId = serverCategoryId;
+      if (serverCategoryId) {
+        queryParams.categoryId = serverCategoryId;
       }
 
       const res = await axiosInstance.get('/api/animals', {
-          params: queryParams
+        params: queryParams,
       });
 
       const data = res.data;
@@ -292,10 +290,10 @@ function setupFilterListener() {
 
       petsGallery(data.animals, page);
 
-      checkTotalPages()
-    }catch (error){
+      checkTotalPages();
+    } catch (error) {
       console.error(error);
-      }
+    }
   });
 }
 

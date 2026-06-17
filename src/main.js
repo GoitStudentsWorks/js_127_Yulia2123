@@ -35,3 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
     instance.show();
   });
 });
+
+import { getAnimals } from './js/loader-api.js';
+
+async function init() {
+  const data = await getAnimals();
+  console.log(data);
+}
