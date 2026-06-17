@@ -17,8 +17,6 @@ let animalsData = [];
 
 let serverCategoryId = '';
 
-
-
 export function getAnimalsData() {
   return animalsData;
 }
@@ -176,8 +174,11 @@ loadMoreBtn.addEventListener('click', async () => {
       petsGallery(data.animals, page);
 
       checkTotalPages()
-    }catch (error){
-      console.error(error);
+    }catch {
+      iziToast.error({
+        title: 'Вибачте, сталася помилка',
+        position: 'topRight',
+      });
     }
 }
 });
@@ -245,9 +246,11 @@ async function renderFilterButtons() {
       .join('');
 
     filterContainer.innerHTML = buttonsMarkup;
-  } catch (error) {
-    filterContainer.innerHTML =
-      '<li>Не вдалося корректно виконати код. Помилка:${error}</li>';
+  } catch {
+      iziToast.error({
+        title: 'Вибачте, сталася помилка відмалювання кнопок.',
+        position: 'topRight',
+      });
   }
 }
 
@@ -293,9 +296,12 @@ function setupFilterListener() {
       petsGallery(data.animals, page);
 
       checkTotalPages()
-    }catch (error){
-      console.error(error);
-      }
+    }catch {
+      iziToast.error({
+        title: 'Вибачте, сталася помилка відмалювання галереї.',
+        position: 'topRight',
+      });
+    }
   });
 }
 
