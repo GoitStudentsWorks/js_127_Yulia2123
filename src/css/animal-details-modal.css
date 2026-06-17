@@ -111,6 +111,8 @@
   color: #ffffff;
   line-height: 1.5;
   transition: all 0.2s ease;
+  font-size: 14px;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 
 .modal-info-btn:hover,
@@ -184,6 +186,7 @@
 
   .modal-info-btn {
     height: 48px;
+    font-size: 16px;
   }
 
   .modal-species,
