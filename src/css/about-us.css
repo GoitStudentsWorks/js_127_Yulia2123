@@ -2,12 +2,12 @@
   padding: 64px 0;
 }
 
-.swiper {
+.swiper-about {
   width: 100%;
   height: auto;
 }
 
-.section-title {
+.section-about-us .section-title {
   font-family: 'Open Sans', sans-serif;
   font-size: 36px;
   line-height: 1.2;
@@ -108,27 +108,21 @@
     opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.swiper-button-prev:disabled,
+.swiper-button-next:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
 .swiper-about .swiper-button-next,
 .swiper-about .swiper-button-prev {
   position: static !important;
 }
 
-.swiper-about .swiper-pagination-bullet {
-  width: 2px;
-  height: 3px;
-  background: #bdbdbd;
-  opacity: 1;
-  transform: scale(1);
-  transition: all 0.3s ease;
-  transform-origin: center;
-  transition:
-    transform 0.3s ease,
-    background 0.3s ease;
+.about-arrow-icon {
+  stroke: #02060a;
 }
-.swiper-about .swiper-pagination-bullet-active {
-  background: #02060a !important;
-  transform: scale(1.4);
-}
+
 @media (max-width: 768px) {
   .swiper-about .swiper-slide-right .swiper-image {
     object-position: right center;

@@ -14,7 +14,9 @@ let page = 1;
 let currentLimit;
 let totalPages;
 let animalsData = [];
+
 let serverCategoryId = '';
+
 
 export function getAnimalsData() {
   return animalsData;
