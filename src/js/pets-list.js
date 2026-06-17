@@ -17,8 +17,6 @@ let animalsData = [];
 
 let serverCategoryId = '';
 
-
-
 export function getAnimalsData() {
   return animalsData;
 }
