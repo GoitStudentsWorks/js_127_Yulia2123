@@ -174,8 +174,11 @@ loadMoreBtn.addEventListener('click', async () => {
       petsGallery(data.animals, page);
 
       checkTotalPages()
-    }catch (error){
-      console.error(error);
+    }catch {
+      iziToast.error({
+        title: 'Вибачте, сталася помилка',
+        position: 'topRight',
+      });
     }
 }
 });
