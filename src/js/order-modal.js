@@ -96,63 +96,39 @@ import axios from 'axios';
     }
   });
 
-  // ФОРМА ВАЛІДАЦІЇ + САБМІТ
-
-  //   form.addEventListener('submit', e => {
-  //     e.preventDefault();
-
-  //     const inputs = form.querySelectorAll('input[required], textarea[required]');
-  //     let valid = true;
-
-  //     inputs.forEach(input => {
-  //       const container = input.closest('.input-container');
-
-  //       if (!input.value.trim()) {
-  //         container.classList.add('error');
-  //         valid = false;
-  //       } else {
-  //         container.classList.remove('error');
-  //       }
-  //     });
-
-  //     if (!valid) return;
-
-  //     console.log('OK submit');
-  //   });
-
-  // const form = document.querySelector('#order-modal form');
-
   form.addEventListener('submit', async e => {
     e.preventDefault();
 
     const nameInput = form.elements.name;
     const phoneInput = form.elements.phone;
 
-    let valid = true;
-
-    [nameInput, phoneInput].forEach(input => {
-      const container = input.closest('.input-container');
-
-      if (!input.value.trim()) {
-        container.classList.add('error');
-        valid = false;
-      } else {
-        container.classList.remove('error');
-        console.log(container.className);
-      }
-    });
-
-    if (!valid) return;
-
     const name = nameInput.value.trim();
     const phone = phoneInput.value.replace(/\D/g, '');
+
+    let valid = true;
+
+    if (!name) {
+      nameInput.closest('.input-container').classList.add('error');
+      valid = false;
+    } else {
+      nameInput.closest('.input-container').classList.remove('error');
+    }
+
+    if (!/^\d{12}$/.test(phone)) {
+      phoneInput.closest('.input-container').classList.add('error');
+      valid = false;
+    } else {
+      phoneInput.closest('.input-container').classList.remove('error');
+    }
+
+    if (!valid) return;
 
     try {
       await axios.post('https://paw-hut.b.goit.study/api/orders', {
         name,
         phone,
         animalId: '667ad1b8e4b01a2b3c4d5e55',
-        comment: form.elements.comment?.value || '',
+        comment: form.elements.comment?.value.trim() || '',
       });
 
       alert('Відправлено!');
@@ -160,7 +136,7 @@ import axios from 'axios';
 
       document.getElementById('order-modal').classList.remove('is-open');
       document.body.classList.remove('modal-open');
-    } catch (err) {
+    } catch {
       alert('Помилка відправки');
     }
   });
