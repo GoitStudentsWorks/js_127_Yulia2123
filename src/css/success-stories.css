@@ -147,7 +147,7 @@
   --swiper-theme-color: black !important;
 }
 
-.swiper-pagination {
+.feedback-swiper-pagination {
   position: relative !important;
   width: auto !important;
   margin-right: auto !important;
