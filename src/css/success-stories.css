@@ -146,10 +146,11 @@
 :root {
   --swiper-theme-color: black !important;
 }
+
 .swiper-pagination {
   position: relative !important;
   width: auto !important;
-  margin-right: auto;
+  margin-right: auto !important;
 }
 .swiper-pagination-bullet {
   width: var(

@@ -8,21 +8,37 @@ import './js/pets-list.js';
 import './js/about-us.js';
 import './js/footer.js';
 
-
 import Accordion from 'accordion-js';
 import 'accordion-js/dist/accordion.min.css';
 
-new Accordion('.accordion-container');
+const accordionEl = document.querySelector('.accordion-container');
+
+if (accordionEl) {
+  new Accordion(accordionEl);
+}
 
 import 'css-star-rating/css/star-rating.css';
 
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 
-const instance = basicLightbox.create(`
-  <img src="./img/photo.jpg" alt="photo">
-`);
+// const instance = basicLightbox.create(`
+//   <img src="./img/photo.jpg" alt="photo">
+// `);
 
-document.querySelector('.open-modal').addEventListener('click', () => {
-  instance.show();
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.querySelector('.open-modal');
+
+  if (!btn) return;
+
+  btn.addEventListener('click', () => {
+    instance.show();
+  });
 });
+
+import { getAnimals } from './js/loader-api.js';
+
+async function init() {
+  const data = await getAnimals();
+  console.log(data);
+}
