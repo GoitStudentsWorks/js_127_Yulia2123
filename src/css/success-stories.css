@@ -143,7 +143,9 @@
 }
 /* #endregion media queries */
 /* #region swiper */
-
+:root {
+  --swiper-theme-color: black !important;
+}
 .feedback-swiper-pagination {
   position: relative !important;
   width: auto !important;
