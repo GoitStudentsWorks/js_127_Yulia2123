@@ -18,8 +18,6 @@ const swiperFeedback = new Swiper('.feedback-swiper', {
   pagination: {
     el: '.feedback-swiper-pagination',
     clickable: true,
-    dynamicBullets: true,
-    dynamicMainBullets: 3,
   },
 
   navigation: {
