@@ -1,6 +1,7 @@
-import Swiper from 'swiper';
-import { Pagination } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
+import Swiper from 'swiper/bundle';
 import 'swiper/css';
+import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 const prevBtns = document.querySelectorAll('.about-btn-prev');
@@ -15,12 +16,14 @@ function updateButtons(swiper) {
   });
 }
 
-const swiper = new Swiper('.swiper-about', {
-  modules: [Pagination],
+const aboutUsSwiper = new Swiper('.swiper-about', {
+  modules: [Navigation, Pagination],
   loop: false,
   pagination: {
-    el: '.swiper-about .swiper-pagination',
+    el: '.about-us-swiper-pagination',
     clickable: true,
+    dynamicBullets: true,
+    dynamicMainBullets: 3,
   },
   on: {
     init(swiper) {
@@ -30,12 +33,8 @@ const swiper = new Swiper('.swiper-about', {
       updateButtons(swiper);
     },
   },
-});
-
-document.querySelectorAll('.about-btn-prev').forEach(btn => {
-  btn.addEventListener('click', () => swiper.slidePrev());
-});
-
-document.querySelectorAll('.about-btn-next').forEach(btn => {
-  btn.addEventListener('click', () => swiper.slideNext());
+  navigation: {
+    nextEl: '.about-btn-next',
+    prevEl: '.about-btn-prev',
+  },
 });

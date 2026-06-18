@@ -2,7 +2,7 @@
 /* #region title/subtitle */
 
 .success-stories-title {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 700;
   font-size: 36px;
   line-height: 1.2;
@@ -12,7 +12,7 @@
   margin-bottom: 24px;
 }
 .success-stories-subtitle {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
@@ -30,14 +30,14 @@
   font-weight: 600;
   font-size: 14px;
   line-height: 1.5;
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
 }
 .feedback-comment {
   width: 100%;
   font-weight: 400;
   font-size: 18px;
   line-height: 1.5;
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
   margin: 32px 0px;
 }
 
@@ -134,12 +134,11 @@
 }
 /* #endregion media queries */
 /* #region swiper */
-:root {
-  --swiper-theme-color: black !important;
-}
-.swiper-pagination {
+
+.feedback-swiper-pagination {
   position: relative !important;
   width: auto !important;
+
   margin-right: auto;
 }
 .swiper-pagination-bullet {
@@ -152,4 +151,5 @@
     var(--swiper-pagination-bullet-size, 12px)
   ) !important;
 }
+
 /* #endregion swiper */
