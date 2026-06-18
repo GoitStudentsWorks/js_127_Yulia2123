@@ -7,7 +7,6 @@
   letter-spacing: -0.01em;
   text-align: center;
   margin-bottom: 16px;
-  padding-top: 64px;
 }
 
 .section-subtitle {
@@ -270,10 +269,6 @@
 
 /* Styles for Desktop devices */
 @media only screen and (min-width: 1440px) {
-  .section-title {
-    padding-top: 80px;
-  }
-
   .section-title {
     font-size: 48px;
   }
