@@ -221,7 +221,6 @@
     right: 0;
 
     display: flex;
-    justify-content: space-between;
 
     transform: translateY(-50%);
     z-index: 10;

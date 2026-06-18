@@ -148,4 +148,44 @@ function renderSlides(slides) {
   swiperFeedback.appendSlide([...slides]);
 }
 
+const container = document.querySelector('.js-feedback-container');
 
+const axiosInstance = axios.create({
+  baseURL: 'https://paw-hut.b.goit.study',
+});
+
+async function loadFeedbacks(page) {
+  if (!container) {
+    console.warn('Container is not find');
+    return;
+  }
+  const params = {
+    limit: PER_PAGE,
+    page: page,
+  };
+  try {
+    const response = await axiosInstance.get('/api/feedbacks', { params });
+
+    if (response.status !== 200) {
+      iziToast.error({
+        title: 'Error',
+        message: 'Не владося завантажити данні',
+        position: 'topCenter',
+      });
+      return;
+    }
+    const feedbacksList = response.data.feedbacks;
+    TOTAL_PAGES = response.data.total;
+    const markup = createSlides(feedbacksList);
+    renderSlides(markup);
+  } catch (error) {
+    console.error(error);
+    iziToast.error({
+      title: 'Error',
+      message: 'Не владося завантажити відгуки. ',
+      position: 'topCenter',
+    });
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadFeedbacks(CURRENT_PAGE));
