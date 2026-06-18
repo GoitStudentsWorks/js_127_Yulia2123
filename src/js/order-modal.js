@@ -128,7 +128,7 @@ import axios from 'axios';
         name,
         phone,
         animalId: '667ad1b8e4b01a2b3c4d5e55',
-        comment: form.elements.comment?.value.trim() || '',
+        comment: form.elements.comment?.value.trim() || 'Коментар відсутній',
       });
 
       alert('Відправлено!');

@@ -1,120 +1,21 @@
-/* *,
-*::before,
-*::after {
-  box-sizing: border-box;
-
-<<<<<<< HEAD
-=======
-.footer {
-  padding: 20px 0;
-}
-
-body {
-  font-family:
-    'Open Sans',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    sans-serif;
-  line-height: 1.5;
-  color: #2a2a2a;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  height: fit-content;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-  object-fit: cover;
-}
-
-.news-card {
-  position: relative;
-  width: 500px;
-  height: 600px;
-  padding: 10px;
-}
-
-.news-list {
-  margin: 20px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 90vw;
-  overflow-y: auto;
-  padding: 20px;
-  align-items: center;
-  justify-content: center;
-  min-height: 900px;
-}
->>>>>>> 7281cdebe4aafe190918958cb03b8b9e1c0d4b28
-
-.news-list::-webkit-scrollbar {
-  width: 10px;
-}
-
-.news-list::-webkit-scrollbar-track {
-  -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
-  background-color: #f9f9fd;
-  border-radius: 10px;
-}
-
-.news-list::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background: linear-gradient(180deg, #00c6fb, #005bea);
-}
-
-.button {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.button.is-hidden {
-  display: none;
-}
-
-.button > .spinner.is-hidden {
-  display: none;
-}
-
-
-.header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: fit-content;
-} */
-
 /*----------MAIN STYLES----------*/
 
-.footer-section{
-  background-color: #C3B49D;
+.footer-section {
+  background-color: #c3b49d;
   min-width: 320px;
   max-width: 100%;
   margin: 0 auto;
   padding: 48px 0;
 }
 
-.footer-container{
+.footer-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 32px;
 }
 
-.footer-link{
+.footer-link {
   max-width: 300px;
   max-height: 129px;
 }
@@ -124,26 +25,26 @@ img {
   height: auto;
 }
 
-.footer-list-links{
+.footer-list-links {
   display: flex !important;
   flex-direction: column;
   align-items: center;
   gap: 32px;
 }
 
-.footer-item-link{
-  font-family: "IBM Plex Sans", sans-serif;
+.footer-item-link {
+  font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 600;
   font-size: 12px;
   line-height: 1.5;
   color: #02060a;
 }
 
-.footer-privacy{
+.footer-privacy {
   margin-top: 48px;
 }
 
-.footer-list-socials{
+.footer-list-socials {
   display: flex;
   gap: 24px;
 }
@@ -159,13 +60,14 @@ img {
   content: '';
   position: absolute;
   left: 0;
-  bottom: -4px; 
+  bottom: -4px;
   width: 100%;
   height: 1px;
   background-color: #02060a;
-  opacity: 0; 
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-  background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transition:
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-link-section:hover::after,
@@ -193,11 +95,13 @@ img {
 }
 
 .footer-social-link:active .footer-social-icon {
-  box-shadow: inset 0 4px 6px -2px rgba(0, 0, 0, 0.03), inset 0 12px 16px -4px rgba(0, 0, 0, 0.08);
+  box-shadow:
+    inset 0 4px 6px -2px rgba(0, 0, 0, 0.03),
+    inset 0 12px 16px -4px rgba(0, 0, 0, 0.08);
   fill: #eee9e3;
 }
 
-.footer-privacy{
+.footer-privacy {
   max-width: 100%;
   min-width: 320px;
   padding-top: 32px;
@@ -205,8 +109,8 @@ img {
   border-top: 1px solid rgba(2, 6, 10, 0.15);
 }
 
-.footer-privacy-text{
-  font-family: "IBM Plex Sans", sans-serif;
+.footer-privacy-text {
+  font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 400;
   font-size: 12px;
   line-height: 1.5;
@@ -214,45 +118,43 @@ img {
 }
 
 @media only screen and (min-width: 768px) {
-  .footer-section{
+  .footer-section {
     min-width: 768px;
     padding: 48px 0;
   }
 
-  .footer-container{
+  .footer-container {
     padding: 0 32px;
   }
 
-  .footer-list-links{
+  .footer-list-links {
     flex-direction: row;
   }
 
-  .footer-privacy{
+  .footer-privacy {
     min-width: 768px;
   }
 }
 
 @media only screen and (min-width: 1440px) {
-  .footer-section{
+  .footer-section {
     min-width: 1440px;
     padding: 64px 0;
   }
 
-  .footer-container{
+  .footer-container {
     padding: 0 64px;
   }
 
-  .footer-item-link{
+  .footer-item-link {
     font-size: 14px;
   }
 
-  .footer-privacy{
+  .footer-privacy {
     min-width: 1440px;
   }
 
-  .footer-privacy-text{
+  .footer-privacy-text {
     font-size: 14px;
   }
 }
-
-
