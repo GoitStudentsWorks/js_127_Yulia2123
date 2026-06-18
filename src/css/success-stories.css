@@ -151,7 +151,7 @@
   position: relative !important;
   width: auto !important;
   margin-right: auto !important;
-  left: 0;
+  left: 0 !important;
 }
 .swiper-pagination-bullet {
   width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 12px)) !important;
