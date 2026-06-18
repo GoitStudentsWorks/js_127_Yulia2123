@@ -3,7 +3,7 @@ import Swiper from 'swiper/bundle';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-
+import axios, { isCancel, AxiosError } from "axios";
 const swiperFeedback = new Swiper('.feedback-swiper', {
   modules: [Navigation, Pagination],
   direction: 'horizontal',
@@ -36,7 +36,7 @@ swiperFeedback.on('reachEnd', () => {
 let PER_PAGE = 4;
 let TOTAL_SEARCH_RESULTS;
 let TOTAL_PAGES;
-let CURRENT_PAGE;
+let CURRENT_PAGE = 1;
 const refs = {
   buttonNext: document.querySelector('.js-button-back'),
   buttonPrev: document.querySelector('.js-button-forward'),
@@ -133,4 +133,3 @@ function createSlides(array) {
 function renderSlides(slides) {
   swiperFeedback.appendSlide([...slides]);
 }
-
